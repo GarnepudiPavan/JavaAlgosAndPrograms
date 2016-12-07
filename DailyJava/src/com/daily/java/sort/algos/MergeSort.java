@@ -1,7 +1,5 @@
 package com.daily.java.sort.algos;
 
-import java.util.Collections;
-
 public class MergeSort {
 
 	/*
@@ -21,16 +19,19 @@ public class MergeSort {
 		obj.doMergeSort(0, obj.inputArray.length - 1);
 
 		for (int i = 0; i < obj.inputArray.length; i++) {
-			System.out.println(obj.inputArray[i]);
+			System.out.println("Sorted Array using Merge Sort is"+" "+obj.inputArray[i]);
 		}
 
+		for(Integer e: obj.inputArray){
+			System.out.println("Sorted array iterated using for each "+" "+e);
+		}
 	}
 
 	void doMergeSort(int lowerIndex, int higherIndex) {
 		int middle = 0;
 		if (lowerIndex < higherIndex) {
 
-			middle = lowerIndex + (higherIndex - lowerIndex) / 2;
+			middle = (lowerIndex + higherIndex)  / 2;
 
 			// below steps sort the left array
 			doMergeSort(lowerIndex, middle);
