@@ -108,17 +108,17 @@ public class LinkedList {
 			head = temp;
 		} // else find the correct position and insert
 		else {
-			ListNode temp = head;
+			ListNode current = head;
 			ListNode previous = null;
 			for (int i = 0; i < position; i += 1) {
-				previous = temp;
-				temp = temp.next;// points at next node
+				previous = current;
+				current = current.next;// points at next node
 			}
 			ListNode newNode = new ListNode(data);// create instance of new node
 													// that needs to be inserted
 			previous.setNext(newNode);// setting next of previous node to
 										// newNode
-			newNode.setNext(temp);// Setting new Node's next
+			newNode.setNext(current);// Setting new Node's next
 		} // the list is now one value longer
 		length += 1;
 	} // Remove and return the node at the head of the list

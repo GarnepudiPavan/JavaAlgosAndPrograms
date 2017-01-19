@@ -4,7 +4,7 @@ public class QueueWithArray {
 
 	private int maxSize = 10;
 	private int front;
-	private int rear;
+	private int rear=-1;
 	private long[] queueArray = new long[maxSize];
 
 	public boolean isFull() {
@@ -22,7 +22,7 @@ public class QueueWithArray {
 	public void enqueue(long e) {
 		if (!isFull()) {
 
-			queueArray[rear++] = e;
+			queueArray[++rear] = e;
 			// If the queue is not full, increment rear pointer to point the
 			// next empty space.
 
@@ -42,21 +42,23 @@ public class QueueWithArray {
 			return -1;
 		}
 	}
+	
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		QueueWithArray obj1 = new QueueWithArray();
 		long count = 1;
 		for (int i = 0; i <=obj1.maxSize-1; i++) {
-			obj1.enqueue(11 + count);
-			System.out.println(i+" " + "th Element is inserted into Queue" + " ");
+			System.out.println(i+" " + "th Element is inserted into Queue" );
+			obj1.enqueue(count);
 			count++;
 			// System.out.print(i);
 		}
 
 		long temp = 0;
 
-		for (int i = 0; i <= obj1.maxSize - 5; i++) {
+		for (int i = 0; i <= obj1.maxSize - 1; i++) {
 			temp = obj1.dequeue();
 			System.out.println(i + " " + "th Element deleted from Queue are" + " " + temp);
 		}

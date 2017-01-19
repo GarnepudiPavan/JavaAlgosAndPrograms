@@ -60,7 +60,7 @@ public class BinarySearch {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BinarySearch obj1 = new BinarySearch();
-		System.out.println(" Element given is present in array at index" + " a " + obj1.elementFinder(7));
+		//System.out.println(" Element given is present in array at index" + " a " + obj1.elementFinder(7));
 
 		int a1[] = { 2, 3, 4, 5, 6, 7, 8 };
 		obj1.recursiveBinary(a1, 0, a1.length - 1, 6);

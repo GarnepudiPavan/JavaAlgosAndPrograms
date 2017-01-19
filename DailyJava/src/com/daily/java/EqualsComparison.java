@@ -5,6 +5,7 @@ public class EqualsComparison {
 	String color;
 	String make;
 	int speed;
+	Integer price;
 
 	public EqualsComparison(String color, String make, int speed) {
 		this.color = color;
@@ -12,14 +13,14 @@ public class EqualsComparison {
 		this.speed = speed;
 	}
 
-	/* SCJP study Guide book page 333,334 and 335
-	 * If below Equals method of Object is not overwritten then Equals method
-	 * call will execute Object Class equals method and will return False as it
-	 * does comparison based on "==" which compares reference for Objects. Once
-	 * we overwrite Object class methods Equals as seen below we can use
-	 * Instance of keyword, cuent object compariosn and String class equals
-	 * method to do exact content comparison of Objects of EqualsComparison
-	 * class. (non-Javadoc)
+	/*
+	 * SCJP study Guide book page 333,334 and 335 If below Equals method of
+	 * Object is not overwritten then Equals method call will execute Object
+	 * Class equals method and will return False as it does comparison based on
+	 * "==" which compares reference for Objects. Once we overwrite Object class
+	 * methods Equals as seen below we can use Instance of keyword, current
+	 * object comparison and String class equals method to do exact content
+	 * comparison of Objects of EqualsComparison class. (non-Javadoc)
 	 * 
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
@@ -39,7 +40,9 @@ public class EqualsComparison {
 		// TODO Auto-generated method stub
 
 		EqualsComparison obj1 = new EqualsComparison("White", "Maruti", 120);
+		obj1.price = 10;
 		EqualsComparison obj2 = new EqualsComparison("White", "Maruti", 120);
+		obj2.price = 20;
 		String s1 = new String("Durga");
 		String s2 = new String("Durga");
 		System.out.println("Equals to comparison" + " " + obj1.equals(obj2));
@@ -47,6 +50,19 @@ public class EqualsComparison {
 
 		System.out.println("Equals method of String Class  comparison" + " " + s1.equals(s2));
 		System.out.println("Double equals to or Equality operator == comparison  of String" + " " + (s1 == s2));
+		if (obj1.speed == obj2.speed) {
+			System.out.println("This will print as == for primitive values compare only value and not references"
+					+ "obj1.speed==obj2.speed ");
+		}
+		if (obj1.price.equals(obj2.price)) {
+			System.out.println(
+					"This will also not print as equals must be overritten else it will compare refernce and not value");
+		}
+		//obj2.price = obj1.price;
+		if (obj1.price.equals(obj2.price)) {
+			System.out.println("This value will be printed as Obj2 reference is now pointing to obj1"
+					+ "Value of obj1.price is" + " " + obj1.price + " " + "Value of obj2.price is" + " " + obj2.price);
+		}
 
 	}
 

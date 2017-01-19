@@ -56,7 +56,7 @@ public class GreatestCommonDivisor {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		GreatestCommonDivisor gcd = new GreatestCommonDivisor();
-		gcd.findGCD(375, 525);
+		gcd.findGCD(525, 375);
 	}
 
 }

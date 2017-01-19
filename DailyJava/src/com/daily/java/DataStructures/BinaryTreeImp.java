@@ -128,14 +128,14 @@ public class BinaryTreeImp {
 			Node current = root;
 			Node parent = null;
 			boolean isLeftChild = true;
-			while (current.key != node.key) {
+			while (current.key != node.key) {//Iterate to find node that matches given node to be deleted
 				parent = current;
-				if (node.key < current.key) {
+				if (node.key < parent.key) {
 					isLeftChild = true;
-					current = current.leftChild;
+					current = parent.leftChild;
 				} else {
-					isLeftChild = true;
-					current = current.rightChild;
+					isLeftChild = false;
+					current = parent.rightChild;
 				}
 
 			}//Deletion of node which has no children that is leaf nodes
@@ -149,7 +149,7 @@ public class BinaryTreeImp {
 				if (current == root) {// if node found is root then delete root
 					root = null;
 				}
-				if (isLeftChild) {// if node funs is left child then set its parent's
+				if (isLeftChild) {// if node found is left child then set its parent's
 							// leftChild link to null. Then leftChild will be
 							// collected by GC
 					parent.leftChild = null;

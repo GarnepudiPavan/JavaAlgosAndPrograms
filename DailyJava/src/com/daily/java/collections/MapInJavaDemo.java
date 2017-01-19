@@ -21,6 +21,7 @@ public class MapInJavaDemo {
 		Iterator<String> it1 = set1.iterator();
 		while (it1.hasNext()) {
 			System.out.println("Extracting from MAP using KeySet()" + " " + map1.get(it1.next()));
+			
 		}
 		// Without using Iterator
 

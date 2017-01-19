@@ -4,7 +4,7 @@ public class StringReverseWithStack {
 
 	String pop;
 	String push;
-	String array[] = new String[10];
+	String array[] = new String[2];
 	int top = -1;
 
 	public void push(String e) {

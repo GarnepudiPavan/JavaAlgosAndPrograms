@@ -1,5 +1,8 @@
 package com.daily.java.sort.algos;
 
+import java.util.LinkedList;
+import java.util.Queue;
+
 /*
  * Selection sort:- https://youtu.be/GUDLRan2DWM?list=PL2_aWCzGMAwKedT2KfDMB9YA5DgASZb3U 
  * Selection sort algorithm works by comparing min value in an array with rest of the numbers
@@ -31,6 +34,10 @@ public class SortingAlgos {
 		for (int i = 0; i <= a.length - 1; i++) {
 			System.out.println("Elements after sort" + " " + a[i]);
 		}
+		
+		
+		
+		
 	}
 
 	public void selectionSort() {
