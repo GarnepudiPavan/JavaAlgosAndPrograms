@@ -7,50 +7,51 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Refer to Quick example of comparator imp
+ * Refer to Quick example of comparator imp. Comparator interface as seen Below can be used to sort Collection containing objects of user defined class 
+ * without making changes to user defined class but from outside the class. 
+ * Where as Comparable interface must be implemented by user defined class and define it's method CompareTo()
  * 
  * @author Pavan
  *
  */
 
-public class ImpComparatorIntf implements Comparator<ImpComparatorIntf> {
+public class ImpComparatorIntf implements Comparator<ImpComparableIntf> {
 
-	String publisherName;
+	/*
+	 * String publisherName;
+	 * 
+	 * ImpComparatorIntf(String publisherName) { super(); this.publisherName =
+	 * publisherName; }
+	 */
 
-	ImpComparatorIntf(String publisherName) {
-		super();
-		this.publisherName = publisherName;
+	public int compare(ImpComparableIntf obj1, ImpComparableIntf obj2) {
+		return obj1.publisher.compareTo(obj2.publisher);
 	}
 
-	public int compare(ImpComparatorIntf obj1, ImpComparatorIntf obj2) {
-		return obj1.publisherName.compareTo(obj2.publisherName);
-	}
-
-	public String getPub() {
-		return this.publisherName;
-	}
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		ImpComparatorIntf obj1 = new ImpComparatorIntf("KaranJohar");
-		ImpComparatorIntf obj2 = new ImpComparatorIntf("TarekFateh");
-		ImpComparatorIntf obj3 = new ImpComparatorIntf("TokkaTolu");
-		ImpComparatorIntf obj4 = new ImpComparatorIntf("AMARAKBAR");
+		ImpComparableIntf obj1 = new ImpComparableIntf("Anka", "Anka's Publisher", "Anka's Book");
+		ImpComparableIntf obj2 = new ImpComparableIntf("Banka", "Banka's Publisher", "Banka's Book");
+		ImpComparableIntf obj3 = new ImpComparableIntf("Cunka", "Cunka's Publisher", "Cunka's Book");
+		ImpComparableIntf obj4 = new ImpComparableIntf("Donka", "Donka's Publisher", "Donka's Book");
+		List<ImpComparableIntf> list1 = new ArrayList<ImpComparableIntf>();
+		list1.add(obj4);
+		list1.add(obj2);
+		list1.add(obj3);
+		list1.add(obj1);
 
-		List<ImpComparatorIntf> bookObj = new ArrayList<ImpComparatorIntf>();
-		bookObj.add(obj1);
-		bookObj.add(obj2);
-		bookObj.add(obj3);
-		bookObj.add(obj4);
+		ImpComparatorIntf objComp = new ImpComparatorIntf();
 
-		for (ImpComparatorIntf e : bookObj) {
-			System.out.println("Before sorting using Comparator" + " " + e.getPub());
+		for (ImpComparableIntf e : list1) {
+			System.out.println("Before sorting using Comparator" + " " + e.getPublisher());
 		}
 		System.out.println("------------------- ");
-		Collections.sort(bookObj, obj1);
+		Collections.sort(list1, objComp);
 
-		for (ImpComparatorIntf e : bookObj) {
-			System.out.println("After sorting using Comparator" + " " + e.getPub());
+		for (ImpComparableIntf e : list1) {
+			System.out.println("After sorting using Comparator" + " " + e.getPublisher());
 		}
 
 	}
