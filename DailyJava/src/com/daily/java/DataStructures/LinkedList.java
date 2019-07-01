@@ -53,13 +53,7 @@ public class LinkedList {
 		return head;
 	}
 
-	/*
-	 * // get length of a List public int getLength(ListNode node) { //int
-	 * listLength = 0; ListNode currentNode = head; while (currentNode != null)
-	 * { length++; currentNode = currentNode.getNext(); } if (currentNode ==
-	 * null) { System.out.println("Tail is present at" + " " + length); } return
-	 * length; }
-	 */
+	
 
 	// Insert a node at the beginning of the list
 	public synchronized void insertAtBegin(ListNode node) {
@@ -78,12 +72,13 @@ public class LinkedList {
 		else {// If list contains elements then iterate from head till last
 				// element
 
-			ListNode temp = head;
+			ListNode current = head;
 
-			while (temp.next != null) {
-				temp = temp.next;
+			while (current.next != null) {
+				current = current.next;
 			}
-			temp.next = new ListNode(node.getData(), null);
+			current.next = node;
+			//new ListNode(node.getData(), null);
 
 		}
 
@@ -102,9 +97,9 @@ public class LinkedList {
 			head = new ListNode(data);
 		} // if adding at the front of the list...
 		else if (position == 0) {
-			ListNode node = head;
+			
 			ListNode temp = new ListNode(data);
-			temp.next = node;
+			temp.next = head;
 			head = temp;
 		} // else find the correct position and insert
 		else {
@@ -137,19 +132,19 @@ public class LinkedList {
 	public synchronized ListNode removeFromEnd() {
 		if (head == null)
 			return null;
-		ListNode p = head, q = null, next = head.getNext();
+		ListNode current = head, previous = null, next = head.getNext();
 		if (next == null) {
 			head = null;
-			return p;
+			return current;
 		}
-		while (p.next != null) {
-			q = p;
-			p = p.getNext();
+		while (current.next != null) {
+			previous = current;
+			current = current.getNext();
 		}
 
-		q.setNext(null);
+		previous.setNext(null);
 		length--;
-		return p;
+		return current;
 	} // Remove a node matching the specified node from the list. // Use
 		// equals() instead of == to test for a matched node.
 
@@ -187,7 +182,7 @@ public class LinkedList {
 			previous = node;
 			node = node.next;
 		}
-		node.setNext(previous);
+		node.setNext(head);
 
 	}
 
@@ -195,7 +190,7 @@ public class LinkedList {
 
 		ListNode slow = head;
 		ListNode fast = head;
-		while (fast != null && fast.next != null) {// Should be set to fast
+		while (fast!= null) {// Should be set to fast
 													// pointer always as it is
 													// incrementing twice and
 													// will reach end of list
@@ -247,7 +242,7 @@ public class LinkedList {
 		String result = "[";
 		if (head == null) {
 			return result + "]";
-		}
+		} else if (head != null){
 		result = result + head.getData();
 		ListNode temp = head.getNext();
 		// ;
@@ -255,7 +250,9 @@ public class LinkedList {
 			result = result + "," + temp.getData();
 			temp = temp.getNext();
 		}
-		return result + "]";
+		result = result + "]";
+		}
+		return result;
 	}
 	// Return // the
 	// current
@@ -306,18 +303,19 @@ public class LinkedList {
 		return node;
 	}
 
-	public void reverseList() {
-
-		ListNode current = head;
-		ListNode previous = null;
-		ListNode next;
-		while (current.next != null) {
-			next = current.next;
-			current.next = previous;
-			previous = current;
-			current = next;
+	
+	public void listNodecount(LinkedList linkedList3){
+		int count=0;
+		ListNode temp=linkedList3.head; 
+		while(temp!=null){
+			temp=temp.next;
+			count= count+1;
 		}
+		System.out.println("Number of nodes in given linked List is"+" "+count);
 	}
+	
+	
+	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -330,12 +328,10 @@ public class LinkedList {
 		System.out.println("Elements in LL " + " " + linkedList1.toString());
 		// linkedList1.removeMatched(node2);
 		linkedList1.insert(17, 1);
-		linkedList1.insert(9, 0);
+		linkedList1.insert(19, 0);
 		System.out.println("Elements in LL " + " " + linkedList1.toString());
 		linkedList1.sortList();
 		System.out.println("Sorted LL is " + " " + linkedList1.toString());
-		// linkedList1.reverseList();
-		// System.out.println("Reversed LL is " + " " + linkedList1.toString());
 		/*
 		 * linkedList1.removeMatched(node3);
 		 * System.out.println("Elements in LL " + " " + linkedList1.toString());
@@ -343,6 +339,11 @@ public class LinkedList {
 		linkedList1.findLoop();
 		linkedList1.insertLoop(node1);
 		linkedList1.findLoop();
+		/*linkedList1.listNodecount(linkedList1);
+		ListNode node4 = new ListNode(29);
+		linkedList1.insertAtEnd(node4);
+		System.out.println("Newly added Elements in LL " + " " + linkedList1.toString());
+		linkedList1.listNodecount(linkedList1);*/
 		// ListNode nodeObj1 = new ListNode(10);
 		/*
 		 * ListNode nodeObj3 = new ListNode(15); obj1.insertAtBegin(nodeObj1);

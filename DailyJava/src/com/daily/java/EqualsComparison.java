@@ -17,8 +17,8 @@ public class EqualsComparison {
 	 * SCJP study Guide book page 333,334 and 335 If below Equals method of
 	 * Object is not overwritten then Equals method call will execute Object
 	 * Class equals method and will return False as it does comparison based on
-	 * "==" which compares reference for Objects. Once we overwrite Object class
-	 * methods Equals as seen below we can use Instance of keyword, current
+	 * "==" which compares reference for Objects. We overwrite Object class
+	 * method, Equals, as seen below; using "Instanceof" keyword, current
 	 * object comparison and String class equals method to do exact content
 	 * comparison of Objects of EqualsComparison class. (non-Javadoc)
 	 * 
@@ -26,9 +26,10 @@ public class EqualsComparison {
 	 */
 
 	public boolean equals(Object obj) {
-		if (this == obj) {
+		if (this == obj) {//if same reference is passed then return true
 			return true;
 		} else if (!(obj instanceof EqualsComparison)) {
+			//if argument passed is not an instance of type EqualsComparison class then return false
 			return false;
 		}
 
@@ -58,7 +59,7 @@ public class EqualsComparison {
 			System.out.println(
 					"This will also not print as equals must be overritten else it will compare refernce and not value");
 		}
-		//obj2.price = obj1.price;
+		obj2.price = obj1.price;
 		if (obj1.price.equals(obj2.price)) {
 			System.out.println("This value will be printed as Obj2 reference is now pointing to obj1"
 					+ "Value of obj1.price is" + " " + obj1.price + " " + "Value of obj2.price is" + " " + obj2.price);

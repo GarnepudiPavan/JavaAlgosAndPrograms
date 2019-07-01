@@ -2,8 +2,10 @@ package com.daily.java.collections;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 
 public class MapInJavaDemo {
 
@@ -11,6 +13,9 @@ public class MapInJavaDemo {
 		// TODO Auto-generated method stub
 		Map<String, Integer> map1 = new HashMap<String, Integer>();
 		Integer i1 = new Integer(11);
+		//HashMap allows one null entry in Key
+		map1.put(null, 00);
+		map1.put("AAA", 00);
 		// Adding element to above map
 		for (int i = 0; i < 10; i++) {
 			map1.put("Member" + i, i1 + i);

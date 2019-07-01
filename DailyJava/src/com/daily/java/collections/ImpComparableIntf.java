@@ -20,7 +20,7 @@ public class ImpComparableIntf implements Comparable<ImpComparableIntf> {
 	public int compareTo(ImpComparableIntf obj) {
 		// TODO Auto-generated method stub
 		return author.compareToIgnoreCase(obj.author);//default method is return author.compareTo(obj.author)
-
+ 
 	}
 
 	public String getAuthor() {

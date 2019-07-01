@@ -9,22 +9,22 @@ public class MergeSort {
 	 * 
 	 */
 
-	int[] inputArray = { 10, 22, 33, 44, 55, -7, 8, 3, 2, 5 };
-	int[] tempArry = new int[inputArray.length];
+	int inputArray[] = {1, 10, 22, 33, 44, 55, -7, 8, 3, 2, 5,0 };
+	int tempArry[] = new int[inputArray.length];
 
 	public static void main(String[] args) {
 
 		MergeSort obj = new MergeSort();
-
+		for(Integer e: obj.inputArray){
+			System.out.println("Array before Sort "+" "+e);
+		}
 		obj.doMergeSort(0, obj.inputArray.length - 1);
 
 		for (int i = 0; i < obj.inputArray.length; i++) {
 			System.out.println("Sorted Array using Merge Sort is"+" "+obj.inputArray[i]);
 		}
 
-		for(Integer e: obj.inputArray){
-			System.out.println("Sorted array iterated using for each "+" "+e);
-		}
+		
 	}
 
 	void doMergeSort(int lowerIndex, int higherIndex) {

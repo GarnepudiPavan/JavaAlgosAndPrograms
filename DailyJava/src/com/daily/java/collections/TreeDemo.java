@@ -58,8 +58,7 @@ public class TreeDemo {
 		
 		
 
-		//LinkedHashSet is impl class of Set Interface that preserves insertion order
-	//adding objects to HashSet
+		//LinkedHashSet is impl class of Set Interface that preserves insertion order adding objects to HashSet
 			
 			linkedhashSetObj.add("linkedhashSetObj1");
 			linkedhashSetObj.add("linkedhashSetObj2");

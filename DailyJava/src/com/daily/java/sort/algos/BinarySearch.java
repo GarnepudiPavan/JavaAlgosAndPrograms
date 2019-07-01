@@ -22,15 +22,19 @@ public class BinarySearch {
 	int midIndex = (a.length / 2);
 	int startIndex = 0;
 	int endIndex = a.length - 1;
+	
 
 	public int elementFinder(int e) {
 		while (startIndex <= endIndex) {
 			midIndex = (startIndex + endIndex) / 2;
 			if (e == a[midIndex]) {
+				System.out.println("Element is present in array at index" + " " + midIndex);
 				return midIndex;
 			} else if (e > a[midIndex]) {
+				//System.out.println("Element is present in array at index" + " " + mid);
 				startIndex = midIndex + 1;
 			} else if (e < a[midIndex]) {
+				//System.out.println("Element is present in array at index" + " " + mid);
 				endIndex = midIndex - 1;
 			}
 		}
@@ -40,30 +44,33 @@ public class BinarySearch {
 	// recursive Binary
 
 	public int recursiveBinary(int a[], int start, int end, int element) {
+		int mid = (start + end) / 2;
+		
+			while(start<=end){
+			if (element == a[mid]) {
+				System.out.println("Element is present in array at index" + " " + mid);
+			} else if (element > a[mid]) {
+				mid = recursiveBinary(a, mid + 1, end, element);
+			} else if (element < a[mid]) {
+				mid = recursiveBinary(a, start, mid - 1, element);
+			}
+			return mid;
 
-		int min = (start + end) / 2;
-		if (element == a[min]) {
-			System.out.println("Element is present in array at index" + " " + min);
-		} else if (element > a[min]) {
-			min = recursiveBinary(a, min + 1, end, element);
-		} else if (element < a[min]) {
-			min = recursiveBinary(a, start, min - 1, element);
-		}
-		if (start > end) {
+			}
+	
 			System.out.println("Element is not present in array at" + " " + -1);
-			min = -1;
-		}
-		return min;
-
+			return -1;
+		
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		BinarySearch obj1 = new BinarySearch();
-		//System.out.println(" Element given is present in array at index" + " a " + obj1.elementFinder(7));
+		
 
 		int a1[] = { 2, 3, 4, 5, 6, 7, 8 };
-		obj1.recursiveBinary(a1, 0, a1.length - 1, 6);
+		obj1.recursiveBinary(a1, 0, a1.length - 1, 7);
+		//obj1.elementFinder(32);
 	}
 
 }
