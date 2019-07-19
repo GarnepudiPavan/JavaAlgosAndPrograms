@@ -5,6 +5,7 @@ public class QueueWithArray {
 	private int maxSize = 10;
 	private int front;
 	private int rear=-1;
+	int numberOfItem =0;
 	private long[] queueArray = new long[maxSize];
 
 	public boolean isFull() {
@@ -12,7 +13,7 @@ public class QueueWithArray {
 	}
 
 	public boolean isEmpty() {
-		return rear == -1;
+		return numberOfItem == 0;
 	}
 
 	public long peek() {
@@ -22,7 +23,7 @@ public class QueueWithArray {
 	public void enqueue(long e) {
 		if (!isFull()) {
 
-			queueArray[++rear] = e;
+			queueArray[++rear] = e;++numberOfItem;
 			// If the queue is not full, increment rear pointer to point the
 			// next empty space.
 
@@ -35,8 +36,9 @@ public class QueueWithArray {
 
 	public long dequeue() {
 		if (!isEmpty()) {
+			numberOfItem--;
 			return queueArray[front++];// Increment front pointer to point to
-										// the next available data element.
+									// the next available data element.
 		} else {
 			System.out.println("Queue is empty. Please insert some data" + " " + rear);
 			return -1;
@@ -62,7 +64,7 @@ public class QueueWithArray {
 			temp = obj1.dequeue();
 			System.out.println(i + " " + "th Element deleted from Queue are" + " " + temp);
 		}
-
+if(obj1.isEmpty())System.out.println("Mastering queue is"+" "+"Success");
 	}
 
 }

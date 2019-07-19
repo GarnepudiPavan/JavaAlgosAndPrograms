@@ -30,7 +30,7 @@ public class StacksWithArray {
 		}
 	}
 
-	public long peep() {
+	public long peek() {
 		return stackArray[top];
 	}
 
@@ -55,11 +55,11 @@ public class StacksWithArray {
 		obj1.push(21);
 		obj1.push(23);
 		obj1.push(25);
-		System.out.println("Top most element of stack is" + " " + obj1.peep());
+		System.out.println("Top most element of stack is" + " " + obj1.peek());
 		obj1.push(22);//element will not be inserted as stack is full
 		obj1.pop();// Deleting element 25 that is inserted last and 23 will be
 					// returned by peek
-		System.out.println("Top most element of stack after pop is" + " " + obj1.peep());
+		System.out.println("Top most element of stack after pop is" + " " + obj1.peek());
 	}
 
 }
