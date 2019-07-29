@@ -17,7 +17,7 @@ public class QueueArray {
     int numberOfItem = 0;
 
     public boolean isFull() {
-        return numberOfItem == queueArray.length - 1;
+        return rearIndex == queueArray.length - 1;
     }
 
     public boolean isEmpty() {

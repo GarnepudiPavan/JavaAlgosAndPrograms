@@ -1,8 +1,6 @@
 package com.daily.java.DataStructures;
 
-import java.util.Stack;
-
-public class Graph {
+public class Graph_Breadth_First_Search {
 
     int max_Vertx = 6;
     Vertex verticesArray[];
@@ -11,7 +9,7 @@ public class Graph {
 
     int vertCount;
 
-    public Graph() {
+    public Graph_Breadth_First_Search() {
 
         verticesArray = new Vertex[max_Vertx];
         adjacentVertices = new int[max_Vertx][max_Vertx];
@@ -61,7 +59,7 @@ public class Graph {
         }
     }
 
-
+    //Method returns adjacent vertex for a given index of a Vertex
     public int getAdjacentVertices(int vertex) {
         int value = 0;
         for (int j = 0; j < max_Vertx - 1; j++) {
@@ -77,24 +75,24 @@ public class Graph {
         return value;
     }
 
-    public void depthFirstSearch() {
-        Stack<Integer> dfsStack = new Stack<Integer>();
+    public void breadthFirstSearch() {
+        Queue<Integer> breadthQueue = new Queue<Integer>();
         verticesArray[0].isVisited = true;
         displayVertex(0);
-        dfsStack.push(0);
+        breadthQueue.enQueue(0);
 
-        while (!dfsStack.isEmpty()) {
-            int adjacentVertex = getAdjacentVertices(dfsStack.peek());
+        while (!breadthQueue.isEmpty()) {
+            int adjacentVertex = getAdjacentVertices(breadthQueue.peek());
 
             if (adjacentVertex == -1) {
-                dfsStack.peek();
-                //System.out.println("Dead-end vertex is: " + " " + dfsStack.peek());
-                //System.out.println("Popping vertex which has no adjacent vertices: " + " " + dfsStack.pop());
-                dfsStack.pop();
+                breadthQueue.peek();
+                //System.out.println("Dead-end vertex is: " + " " + breadthQueue.peek());
+                //System.out.println("Popping vertex which has no adjacent vertices: " + " " + breadthQueue.pop());
+                breadthQueue.deQueue();
             } else {
                 verticesArray[adjacentVertex].isVisited = true;
                 displayVertex(adjacentVertex);
-                dfsStack.push(adjacentVertex);
+                breadthQueue.enQueue(adjacentVertex);
             }
         }
 
@@ -106,8 +104,60 @@ public class Graph {
         }
     }
 
+    public class Queue<Integer> {
+        int[] queueArray;
+        int frontIndex;
+        int rearIndex;
+        int count;
+
+        public Queue() {
+            queueArray = new int[max_Vertx];
+            count = 0;
+            frontIndex = 0;
+            rearIndex = -1;
+
+        }
+
+        public boolean isFull() {
+            return rearIndex == queueArray.length - 1;
+        }
+
+        public boolean isEmpty() {
+
+            return count == 0;
+        }
+
+        public void enQueue(int value) {
+            if (!isFull()) {
+                ++count;
+                queueArray[++rearIndex] = value;
+
+            } else {
+                System.out.println("Queue is full...");
+            }
+        }
+
+        public int peek() {
+            return queueArray[frontIndex];
+        }
+
+        public int deQueue() {
+            int value = 0;
+            if (!isEmpty()) {
+                queueArray[frontIndex++] = value;
+                count--;
+            } else {
+                value = -1;
+                System.out.println("Queue is already empty...");
+            }
+            return value;
+        }
+
+    }
+
+
     public static void main(String args[]) {
-        Graph obj1 = new Graph();
+        Graph_Breadth_First_Search obj1 = new Graph_Breadth_First_Search();
         obj1.addVertex('a');
         obj1.addVertex('b');
         obj1.addVertex('c');
@@ -123,8 +173,8 @@ public class Graph {
 //        for (int i = 0; i <= obj1.verticesArray.length - 1; i++)
 //            obj1.displayVertex(i);
         obj1.displayAdjacentArray();
-        System.out.print("Depth search path of vertex is" + " " + "\t");
-        obj1.depthFirstSearch();
+        System.out.print("Breadth search path of vertex is" + " " + "\t");
+        obj1.breadthFirstSearch();
     }
 
 }
