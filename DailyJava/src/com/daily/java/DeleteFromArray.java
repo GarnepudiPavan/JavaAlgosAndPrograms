@@ -44,7 +44,7 @@ public class DeleteFromArray {
 		}
 		array = temp;
 		for (int j = 0; j <= array.length - 1; j++) {
-			System.out.println("Array after item is deleted" + "" + array[j]);
+			System.out.println("Array after item is deleted" + " " + array[j]);
 		}
 
 		return indexFound;

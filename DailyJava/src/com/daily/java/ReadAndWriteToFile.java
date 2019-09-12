@@ -17,7 +17,7 @@ public class ReadAndWriteToFile {
 
 	public void writeToFile() {
 
-		Scanner getDetails = new Scanner(System.in);
+		Scanner getDetails = new Scanner(System.in); 
 		System.out.println("Enter string to write to file");
 		try {
 			/**
@@ -32,7 +32,7 @@ public class ReadAndWriteToFile {
 			fileWriter = new FileWriter(path);
 			fileWriter.write(value);
 
-			getDetails.close();
+			getDetails.close();fileWriter.flush();
 			fileWriter.close();
 		} catch (IOException e) {
 			System.out.println("Exception occurred writing to file" + " " + e.getMessage());
@@ -49,6 +49,7 @@ public class ReadAndWriteToFile {
 			System.out.println("Details from console using BufferedReader" + " " + value);
 			fileWriter = new FileWriter(path);
 			fileWriter.write(value);
+			fileWriter.flush();
 			// }
 			biFS.close();
 			fileWriter.close();
@@ -77,7 +78,7 @@ public class ReadAndWriteToFile {
 	public static void main(String args[]) {
 
 		ReadAndWriteToFile obj1 = new ReadAndWriteToFile();
-		// obj1.writeToFile();
+		//obj1.writeToFile();
 		obj1.writeToFileUsingBufferedReader();
 		obj1.readFromFile();
 

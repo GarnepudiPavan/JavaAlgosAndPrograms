@@ -39,18 +39,17 @@ public class BinaryTreeImp {
 
     }
 
-    /*
-     * The defining characteristic of a binary search tree is this: A node?s
-     * left child must have a key less than its parent, and a node?s right child
+    /**
+     * The defining characteristic of a binary search tree is this: A nodes's
+     * left child must have a key less than its parent, and a node's right child
      * must have a key greater than or equal to its parent.
      *
      */
 
     public void addNode(Node newNode) {
-        // newNode = new Node();// New node instance to be used if Parent node
-        // is null
+      
         int key = newNode.key;
-        // int data=newNode.data;
+       // int data=newNode.data;
         if (root == null) {
             root = newNode;
             root.display();
@@ -61,8 +60,7 @@ public class BinaryTreeImp {
                 parent = current;
                 if (key < parent.key) {
                     current = parent.leftChild;
-                    // If left child of current parent node is null then insert
-                    // a new node
+                    // If left child of current parent node is null then insert new node
                     if (current == null) {
                         parent.leftChild = newNode;
                         parent.leftChild.display();
@@ -70,8 +68,7 @@ public class BinaryTreeImp {
                     }
                 } else {
                     current = parent.rightChild;
-                    // If right child of current parent node is null then insert
-                    // a new node
+                    // If right child of current parent node is null then insert new node
                     if (current == null) {
                         parent.rightChild = newNode;
                         parent.rightChild.display();

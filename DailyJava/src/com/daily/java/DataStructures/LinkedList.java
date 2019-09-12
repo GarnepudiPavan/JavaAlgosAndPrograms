@@ -53,14 +53,12 @@ public class LinkedList {
 		return head;
 	}
 
-	
-
 	// Insert a node at the beginning of the list
-	public synchronized void insertAtBegin(ListNode node) {
-		node.next = head;// node.setNext(head);// making present head as next by
+	public synchronized void insertAtBegin(ListNode newNode) {
+		newNode.next = head;// node.setNext(head);// making present head as next by
 							// making new node next pointer point to current
 							// node at head
-		head = node; // passing new node as head
+		head = newNode; // passing new node as head
 		length++;
 	}
 
@@ -78,7 +76,7 @@ public class LinkedList {
 				current = current.next;
 			}
 			current.next = node;
-			//new ListNode(node.getData(), null);
+			// new ListNode(node.getData(), null);
 
 		}
 
@@ -97,7 +95,7 @@ public class LinkedList {
 			head = new ListNode(data);
 		} // if adding at the front of the list...
 		else if (position == 0) {
-			
+
 			ListNode temp = new ListNode(data);
 			temp.next = head;
 			head = temp;
@@ -190,11 +188,11 @@ public class LinkedList {
 
 		ListNode slow = head;
 		ListNode fast = head;
-		while (fast!= null) {// Should be set to fast
-													// pointer always as it is
-													// incrementing twice and
-													// will reach end of list
-													// quicker
+		while (fast != null) {// Should be set to fast
+								// pointer always as it is
+								// incrementing twice and
+								// will reach end of list
+								// quicker
 			slow = slow.next;
 			fast = fast.next.next;
 			if (slow == fast) {
@@ -242,15 +240,15 @@ public class LinkedList {
 		String result = "[";
 		if (head == null) {
 			return result + "]";
-		} else if (head != null){
-		result = result + head.getData();
-		ListNode temp = head.getNext();
-		// ;
-		while (temp != null) {
-			result = result + "," + temp.getData();
-			temp = temp.getNext();
-		}
-		result = result + "]";
+		} else if (head != null) {
+			result = result + head.getData();
+			ListNode temp = head.getNext();
+			// ;
+			while (temp != null) {
+				result = result + "," + temp.getData();
+				temp = temp.getNext();
+			}
+			result = result + "]";
 		}
 		return result;
 	}
@@ -303,19 +301,15 @@ public class LinkedList {
 		return node;
 	}
 
-	
-	public void listNodecount(LinkedList linkedList3){
-		int count=0;
-		ListNode temp=linkedList3.head; 
-		while(temp!=null){
-			temp=temp.next;
-			count= count+1;
+	public void listNodecount(LinkedList linkedList3) {
+		int count = 0;
+		ListNode temp = linkedList3.head;
+		while (temp != null) {
+			temp = temp.next;
+			count = count + 1;
 		}
-		System.out.println("Number of nodes in given linked List is"+" "+count);
+		System.out.println("Number of nodes in given linked List is" + " " + count);
 	}
-	
-	
-	
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -333,17 +327,18 @@ public class LinkedList {
 		linkedList1.sortList();
 		System.out.println("Sorted LL is " + " " + linkedList1.toString());
 		/*
-		 * linkedList1.removeMatched(node3);
-		 * System.out.println("Elements in LL " + " " + linkedList1.toString());
+		 * linkedList1.removeMatched(node3); System.out.println("Elements in LL " + " "
+		 * + linkedList1.toString());
 		 */
 		linkedList1.findLoop();
 		linkedList1.insertLoop(node1);
 		linkedList1.findLoop();
-		/*linkedList1.listNodecount(linkedList1);
-		ListNode node4 = new ListNode(29);
-		linkedList1.insertAtEnd(node4);
-		System.out.println("Newly added Elements in LL " + " " + linkedList1.toString());
-		linkedList1.listNodecount(linkedList1);*/
+		/*
+		 * linkedList1.listNodecount(linkedList1); ListNode node4 = new ListNode(29);
+		 * linkedList1.insertAtEnd(node4);
+		 * System.out.println("Newly added Elements in LL " + " " +
+		 * linkedList1.toString()); linkedList1.listNodecount(linkedList1);
+		 */
 		// ListNode nodeObj1 = new ListNode(10);
 		/*
 		 * ListNode nodeObj3 = new ListNode(15); obj1.insertAtBegin(nodeObj1);
@@ -352,15 +347,14 @@ public class LinkedList {
 		 * obj1.insert(11, 2); System.out.println("Length of List is" + " " +
 		 * obj1.length); System.out.println("Elements of LL are" + " " +
 		 * obj1.toString()); System.out.println("Given Integer is at" + " " +
-		 * obj1.getPosition(11) + " " + "position of LinkedList");
-		 * obj1.insert(9, 0);
-		 * System.out.println("New order of Elements in LL is" + " " +
-		 * obj1.toString()); System.out.println("Length of list is" + " " +
-		 * obj1.length); obj1.insertAtEnd(nodeObj3); ListNode nodeObj2 = new
-		 * ListNode(5); obj1.insertAtBegin(nodeObj2);
-		 * System.out.println("New order of Elements in LL is" + " " +
-		 * obj1.toString()); System.out.println("Length of List is" + " " +
-		 * obj1.length); obj1.removeFromEnd();
+		 * obj1.getPosition(11) + " " + "position of LinkedList"); obj1.insert(9, 0);
+		 * System.out.println("New order of Elements in LL is" + " " + obj1.toString());
+		 * System.out.println("Length of list is" + " " + obj1.length);
+		 * obj1.insertAtEnd(nodeObj3); ListNode nodeObj2 = new ListNode(5);
+		 * obj1.insertAtBegin(nodeObj2);
+		 * System.out.println("New order of Elements in LL is" + " " + obj1.toString());
+		 * System.out.println("Length of List is" + " " + obj1.length);
+		 * obj1.removeFromEnd();
 		 * System.out.println("Elements in LL after removing from end" + " " +
 		 * obj1.toString()); System.out.println("Length of List is" + " " +
 		 * obj1.length); obj1.removeFromEnd();

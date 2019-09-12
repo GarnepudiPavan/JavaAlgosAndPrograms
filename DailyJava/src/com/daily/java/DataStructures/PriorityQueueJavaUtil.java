@@ -8,12 +8,14 @@ public class PriorityQueueJavaUtil {
 	cars[] carsList;
 
 	public PriorityQueueJavaUtil(int size) {
-		carsList = new cars[size];
-		priorityQueue = new PriorityQueue<cars>(new cars(0, 0, null, null));
+		carsList  = new cars[size];
+		// We need to pass class that has Comparator implementattion to PriorityQueue
+		// initialization
+		priorityQueue = new PriorityQueue<cars>(new cars(0, 0, "null", "null"));
 
 	}
 
-	public class cars implements Comparator<cars>{
+	public class cars implements Comparator<cars> {
 		int carMileage;
 		int carPrice;
 		String carMake;
@@ -27,32 +29,20 @@ public class PriorityQueueJavaUtil {
 		}
 
 		public String toString() {
-			return this.carMake + " " + this.carModel;
+			return "Make is" + " " + this.carMake + " " + "and Model is" + " " + this.carModel + " " + " Mileage is"
+					+ " " + this.carMileage;
 		}
-		
+
 		public int compare(cars obj1, cars obj2) {
-			if(obj1.carMileage==obj2.carMileage) {
+			if (obj1.carMileage == obj2.carMileage) {
 				return 0;
-			}else if(obj1.carMileage>obj2.carMileage) {
-				return 1;
-			}else {
+			} else if (obj1.carMileage > obj2.carMileage) {
 				return -1;
+			} else {
+				return 1;
 			}
-			
-		}
-	}
 
-	public void sortCarModels() {
-		
-		  for (int i=0; i<=carsList.length-1; i++) { 
-			  priorityQueue.offer(carsList[i]);
-		  }
-		
-		priorityQueue.comparator();
-		while (!priorityQueue.isEmpty()) {
-			System.out.println("Sorted order of cars based on Mileage in increasing order" + " " + priorityQueue.poll());
 		}
-
 	}
 
 	public static void main(String args[]) {
@@ -68,11 +58,19 @@ public class PriorityQueueJavaUtil {
 		obj1.carsList[2] = carobj3;
 		obj1.carsList[3] = carobj4;
 
+		for (cars obj : obj1.carsList) {
+			obj1.priorityQueue.offer(obj);
+		}
+
 		for (cars list : obj1.carsList) {
 			System.out.println("Unsorted order of cars" + " " + list.toString());
 		}
 
-		obj1.sortCarModels();
+		System.out.println("+++++++++++++++++++++++++++++");
 
+		while (!obj1.priorityQueue.isEmpty()) {
+			System.out.println("Sorted order of cars" + " " + obj1.priorityQueue.poll());
+		}
+		System.out.println("+++++++++++++++++++++++++++++");
 	}
 }

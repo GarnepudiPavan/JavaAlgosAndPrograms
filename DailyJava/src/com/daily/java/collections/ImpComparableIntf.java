@@ -1,5 +1,10 @@
 package com.daily.java.collections;
 
+/*
+ * Easy Reference Video - https://www.youtube.com/watch?v=oAp4GYprVHM&t=300s
+ * 
+ */
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
