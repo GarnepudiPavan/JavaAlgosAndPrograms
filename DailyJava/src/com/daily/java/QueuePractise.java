@@ -1,5 +1,15 @@
 package com.daily.java;
 
+/**
+ * Params rearIndex, FrontIndex are needed to keep track of inserting elements
+ * from rear and popping elements from Front. To keep track of number of
+ * elements in Queue we need a length or counter variable. Using this counter
+ * variable we can also check if queue is full or empty
+ * 
+ * @author gv
+ *
+ */
+
 public class QueuePractise {
 
 	int front;
@@ -62,7 +72,7 @@ public class QueuePractise {
 		obj1.push(50);
 
 		while (!obj1.isEmpty()) {
-			System.out.println("Values in stack"+" "+obj1.peek());
+			System.out.println("Values in stack" + " " + obj1.peek());
 			obj1.pop();
 		}
 	}
