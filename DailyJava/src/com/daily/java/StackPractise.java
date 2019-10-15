@@ -1,5 +1,13 @@
 package com.daily.java;
 
+/**
+ * Params top is needed to keep track of inserting elements into stack.
+ * To keep track of number of elements in Stack we need a length or counter
+ * variable. Using this counter variable we can also check if stack is full or empty
+ * @author gv
+ *
+ */
+
 public class StackPractise {
 
 	int top;
