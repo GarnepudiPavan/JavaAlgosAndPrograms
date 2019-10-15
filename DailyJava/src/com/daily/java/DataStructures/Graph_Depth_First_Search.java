@@ -88,7 +88,7 @@ public class Graph_Depth_First_Search {
         Stack<Integer> dfsStack = new Stack<Integer>();
         verticesArray[0].isVisited = true;
         displayVertex(0);
-       
+       dfsStack.push(0);
         while (!dfsStack.isEmpty()) {
             int adjacentVertex = getAdjacentVertices(dfsStack.peek());
 
