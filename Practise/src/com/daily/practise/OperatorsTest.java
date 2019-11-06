@@ -1,6 +1,5 @@
 package Practise.src.com.daily.practise;
 
-
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
@@ -82,7 +81,6 @@ public class OperatorsTest {
         }
     }
 
-
     private void withRepetition(String[] num) throws ScriptException {
         String arrayOperators[] = {"/" , "*" , "+" , "-"};
         String pattern[][] = new String[arrayOperators.length][arrayOperators.length];//1st place 4 operators and second place 4
@@ -100,12 +98,9 @@ public class OperatorsTest {
         }
     }
 
-
     public static void main(String args[]) throws ScriptException {
         OperatorsTest obj = new OperatorsTest ();
         Object result[] = obj.operatorsMethod ( "105" , 5 , true );
         System.out.println ( "Pattern found is" + " " + result[0].toString () + " " + "and value is" + " " + result[1].toString () + " " + "for given target" + " " + result[2].toString () );
-
-
     }
 }
