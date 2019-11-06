@@ -29,8 +29,6 @@ public class PatternMatch {
 
     public void patterMatchSubString(String values , int charLen) {
         int count = 1;
-
-        //int length = charLen;
         int limit = values.length () / charLen;
         String array[] = new String[limit];
         int startIndex = 0;
@@ -67,7 +65,7 @@ public class PatternMatch {
     public static void main(String args[]) {
         PatternMatch obj = new PatternMatch ();
         obj.patterMatchStringChar ( "AABAABBA" );
-        obj.patterMatchSubString ( "AABAABBA" , 2 );
+        obj.patterMatchSubString ( "AAABBBCDEFFFDDDFFF" , 3 );
     }
 
 
