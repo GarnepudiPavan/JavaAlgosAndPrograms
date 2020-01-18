@@ -1,4 +1,4 @@
-package Practise.src.com.daily.practise;
+package com.daily.practise;
 
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
@@ -65,8 +65,8 @@ public class OperatorsTest {
         String arrayOperators[] = {"/" , "*" , "+" , "-"};
         String pattern[][] = new String[arrayOperators.length][arrayOperators.length - 1];//1st place 4 operators and second place 3
 
-        for (int i = 0; i <= arrayOperators.length - 1; i++) {
-            for (int j = 0; j <= arrayOperators.length - 2; j++) {
+        for (int i = 0; i < arrayOperators.length; i++) {
+            for (int j = 0; j < arrayOperators.length - 1; j++) {
 
                 pattern[i][j] = num[0] + arrayOperators[i] + num[1] + arrayOperators[j + 1] + num[2];
                 if ((i == 1 && j == 0) || (i == 2 && j == 1) || (i == 3 && j == 2)) {

@@ -1,4 +1,4 @@
-package Practise.src.com.daily.practise;
+package com.daily.practise;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
