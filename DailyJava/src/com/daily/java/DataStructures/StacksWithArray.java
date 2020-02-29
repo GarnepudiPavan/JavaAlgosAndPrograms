@@ -15,8 +15,11 @@ public class StacksWithArray {
 	private int stackArray[] = new int[maxSize];
 
 	public long pop() {
+		System.out.println ( "Top value is"+" "+top);
 		if (!isStackEmpty()) {
-			return stackArray[top--];
+			return stackArray[top--]; //post decrement as we need to pass top value and
+            // then decrement top there by after top is at 0 it will not enter if
+            // stack will be empty
 		} else {
 			return -1;
 		}
@@ -24,14 +27,19 @@ public class StacksWithArray {
 
 	public void push(int e) {
 		if (!isStackFull()) {
-			stackArray[++top] = e;
+			stackArray[++top] = e;//pre increment as first index should be 0 where value must be inserted as top starts from -1
 		} else {
 			System.out.println("Stack is full. As it has reach max size :" + " " + top);
 		}
 	}
 
 	public long peek() {
-		return stackArray[top];
+		if(!isStackEmpty ()) {
+			return stackArray[ top ];
+		}else{
+			System.out.println ( "Stack is empty" );
+			return -1;
+		}
 	}
 
 	public boolean isStackFull() {
@@ -57,9 +65,12 @@ public class StacksWithArray {
 		obj1.push(25);
 		System.out.println("Top most element of stack is" + " " + obj1.peek());
 		obj1.push(22);//element will not be inserted as stack is full
-		obj1.pop();// Deleting element 25 that is inserted last and 23 will be
-					// returned by peek
-		System.out.println("Top most element of stack after pop is" + " " + obj1.peek());
+		while(!obj1.isStackEmpty()) {
+        System.out.println ( "Popping elements from"+" "+obj1.pop ());
+			// Deleting element 25 that is inserted last and 23 will be
+			// returned by peek
+		}
+		System.out.println("Top value is" + " " + obj1.peek());
 	}
 
 }
